@@ -1,0 +1,42 @@
+{
+  "name": "sportbuddy-mvp",
+  "version": "1.0.0",
+  "description": "Web-платформа для пошуку спортивних партнерів, схожа на Tinder, але тільки для спорту",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'No build step required for static site'",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod"
+  },
+  "keywords": [
+    "sport",
+    "fitness",
+    "partner",
+    "tinder",
+    "dating",
+    "workout",
+    "gym",
+    "running",
+    "yoga",
+    "football"
+  ],
+  "author": "SportBuddy Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sportbuddy/mvp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sportbuddy/mvp/issues"
+  },
+  "homepage": "https://sportbuddy.com"
+}

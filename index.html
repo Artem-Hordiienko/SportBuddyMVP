@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportBuddy — знайди свого спортивного напарника</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <nav class="navbar glass">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>SportBuddy</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Головна</a>
+                <a href="#features" class="nav-link">Можливості</a>
+                <a href="#about" class="nav-link">Про платформу</a>
+                <a href="#how-it-works" class="nav-link">Як працює</a>
+                <div class="nav-auth">
+                    <button class="btn btn-outline" onclick="showAuthModal()">Увійти</button>
+                    <button class="btn btn-primary" onclick="showAuthModal('register')">Зареєструватися</button>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="container hero-container">
+                <div class="hero-content glass-panel">
+                    <span class="hero-tag">#1 платформа для пошуку партнерів</span>
+                    <h1>Знаходь спортивних напарників поруч і тренуйся з мотивацією</h1>
+                    <p>SportBuddy підбирає людей з подібними цілями, графіком та улюбленими видами активностей. Свайпай як у Tinder, отримуй матчі та переходь до чату всередині застосунку.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="showAuthModal('register')">
+                            <i class="fas fa-bolt"></i>
+                            Розпочати безкоштовно
+                        </button>
+                        <button class="btn btn-glass btn-large" onclick="scrollToFeatures()">
+                            <i class="fas fa-circle-play"></i>
+                            Подивитись як це працює
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">12k+</span>
+                            <span class="stat-label">успішних матчів</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">38</span>
+                            <span class="stat-label">видів спорту</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.9★</span>
+                            <span class="stat-label">оцінка користувачів</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-preview">
+                    <div class="preview-card main">
+                        <div class="preview-header">
+                            <div class="preview-avatar avatar-1"></div>
+                            <div>
+                                <h3>Аліна, 24</h3>
+                                <p>Біг • 5 км • Ранкові тренування</p>
+                            </div>
+                        </div>
+                        <p class="preview-bio">«Шукаю напарницю для ранкових пробіжок на Нивках. Люблю брати участь у благодійних стартах»</p>
+                        <div class="preview-actions">
+                            <button class="preview-btn skip"><i class="fas fa-xmark"></i></button>
+                            <button class="preview-btn like"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="preview-card floating card-2">
+                        <div class="preview-header">
+                            <div class="preview-avatar avatar-2"></div>
+                            <div>
+                                <h4>Ростислав • Match!</h4>
+                                <small>«Давай у суботу на сквош?»</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-card floating card-3">
+                        <p>Нове досягнення</p>
+                        <h4>3 тренування поспіль</h4>
+                        <span>Продовж streak і відкрий бонуси</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features section">
+            <div class="container">
+                <h2 class="section-title">Усе, що потрібно для командної мотивації</h2>
+                <p class="section-subtitle">Розумні алгоритми, персоналізовані рекомендації та соціальні механіки у витонченому інтерфейсі.</p>
+                <div class="features-grid">
+                    <article class="feature-card glass">
+                        <div class="feature-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Тонкий підбір партнерів</h3>
+                        <p>Machine learning зімапує цілі, досвід, графік та локацію. Кожен свіп наближає тебе до ідеального матчу.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i>Фільтри за темпом, навичками, локацією</li>
+                            <li><i class="fas fa-check"></i>Розумні рекомендації на основі поведінки</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Вбудований чат</h3>
+                        <p>Спілкуйся всередині застосунку, надсилай реакції, плануй тренування й отримуй нагадування.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i>Швидкі відповіді та шаблони</li>
+                            <li><i class="fas fa-check"></i>Спільні ToDo для тренувань</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Гейміфікація прогресу</h3>
+                        <p>Збирай streak, відзначай прогрес і відкривай бейджі. Motivate yourself & your buddy.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i>Персональні та парні челенджі</li>
+                            <li><i class="fas fa-check"></i>Аналітика часу та навантажень</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card glass">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-heart"></i>
+                        </div>
+                        <h3>Безпечна спільнота</h3>
+                        <p>Перевірені профілі, оцінки після тренувань та смарт-модерація для комфортної взаємодії.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i>Верифікація документів за бажанням</li>
+                            <li><i class="fas fa-check"></i>Сповіщення про підозрілу активність</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section">
+            <div class="container about-container glass-panel">
+                <div class="about-content">
+                    <span class="eyebrow">Про SportBuddy</span>
+                    <h2>Ми створюємо культуру регулярних тренувань</h2>
+                    <p>Команда SportBuddy поєднує тренерів, UX-дизайнерів та дата-аналітиків. Ми віримо, що люди тренуються довше, коли відчувають підтримку. Тому ми створили застосунок, який не тільки знайде ідеального партнера, а й допоможе вам тримати темп.</p>
+                    <div class="about-highlights">
+                        <div>
+                            <strong>4 міста</strong>
+                            <span>впроваджено локальні спільноти</span>
+                        </div>
+                        <div>
+                            <strong>62%</strong>
+                            <span>користувачів тренуються частіше</span>
+                        </div>
+                        <div>
+                            <strong>+18 хв</strong>
+                            <span>середнє зростання сесії</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-media">
+                    <div class="stats-card glass">
+                        <h3>Твої дані під контролем</h3>
+                        <ul>
+                            <li><i class="fas fa-lock"></i>Шифрування чату end-to-end</li>
+                            <li><i class="fas fa-user-shield"></i>Гнучкі налаштування приватності</li>
+                            <li><i class="fas fa-hourglass-half"></i>Автоочищення історії тренувань</li>
+                        </ul>
+                    </div>
+                    <div class="metrics-card glass">
+                        <span class="metric-value">89%</span>
+                        <span class="metric-label">користувачів знаходять партнера за 5 днів</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works section">
+            <div class="container">
+                <h2 class="section-title">Як працює SportBuddy</h2>
+                <div class="steps">
+                    <div class="step glass">
+                        <div class="step-number">1</div>
+                        <h3>Створи профіль</h3>
+                        <p>Додай свої цілі, локацію, графік та улюблені активності. Додаток підкаже, що ще варто заповнити для максимально точних рекомендацій.</p>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">2</div>
+                        <h3>Свайпай та фільтруй</h3>
+                        <p>Налаштуй фільтри під себе, застосуй розширений пошук і оцінюй потенційних партнерів свайпами. Алгоритм навчається від кожної взаємодії.</p>
+                    </div>
+                    <div class="step glass">
+                        <div class="step-number">3</div>
+                        <h3>Матч і дія</h3>
+                        <p>Після взаємного лайка відкривається чат. Плануй тренування, ділись файлами та синхронізуй календар у кілька кліків.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial section">
+            <div class="container glass-panel testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>«Ми з Анею підготувалися до півмарафону за три місяці. Найкраща частина — щотижневі звіти і нагадування від SportBuddy, які не дають зупинитись.»</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div>
+                        <h4>Ірина, 29</h4>
+                        <span>Менторка бігової спільноти SportBuddy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta section">
+            <div class="container cta-container glass-panel">
+                <div class="cta-content">
+                    <h2>Готові додати дисципліни в тренування?</h2>
+                    <p>Заповни профіль, отримай перші рекомендації за 60 секунд і знайди партнера, який заряджатиме тебе кожного разу.</p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-large" onclick="showAuthModal('register')">
+                        <i class="fas fa-user-plus"></i>
+                        Створити акаунт
+                    </button>
+                    <button class="btn btn-outline btn-large" onclick="showAuthModal()">
+                        <i class="fas fa-right-to-bracket"></i>
+                        У мене вже є акаунт
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer glass">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>SportBuddy</span>
+            </div>
+            <p>© 2024 SportBuddy. Твій шлях до здорових звичок у надійних руках.</p>
+            <div class="footer-links">
+                <a href="#">Політика конфіденційності</a>
+                <a href="#">Умови користування</a>
+                <a href="#">Підтримка</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2 id="modal-title">Увійти</h2>
+                <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchAuthTab('login')">Увійти</button>
+                    <button class="tab-btn" onclick="switchAuthTab('register')">Зареєструватися</button>
+                </div>
+
+                <form id="auth-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Пароль</label>
+                            <input type="password" id="password" name="password" required minlength="6">
+                        </div>
+                        <div class="form-group password-hint">
+                            <span><i class="fas fa-shield-halved"></i> Мінімум 6 символів</span>
+                        </div>
+                    </div>
+                    <div id="register-fields" class="register-fields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ім'я</label>
+                                <input type="text" id="name" name="name" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Вік</label>
+                                <input type="number" id="age" name="age" min="16" max="100">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender">Гендер</label>
+                                <select id="gender" name="gender">
+                                    <option value="">Оберіть</option>
+                                    <option value="male">Чоловік</option>
+                                    <option value="female">Жінка</option>
+                                    <option value="other">Інше</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sport-goal">Ціль</label>
+                                <input type="text" id="sport-goal" name="sportGoal" placeholder="Півмарафон, плавання...">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span id="submit-text">Увійти</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="filters-modal" class="modal secondary-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2>Фільтри пошуку</h2>
+                <button class="modal-close" onclick="closeFiltersModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="filters-form" class="filters-form">
+                    <div class="form-group">
+                        <label for="filter-activity">Активність</label>
+                        <input type="text" id="filter-activity" name="activity" placeholder="Біг, силові, йога...">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="filter-experience">Рівень</label>
+                            <select id="filter-experience" name="experience">
+                                <option value="">Будь-який</option>
+                                <option value="beginner">Початківець</option>
+                                <option value="intermediate">Середній</option>
+                                <option value="advanced">Просунутий</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-distance">Дистанція (км)</label>
+                            <input type="number" id="filter-distance" name="distance" min="1" max="50" step="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="filter-days">Дні</label>
+                            <select id="filter-days" name="days" multiple>
+                                <option value="weekdays">Будні</option>
+                                <option value="weekend">Вихідні</option>
+                                <option value="mornings">Ранок</option>
+                                <option value="evenings">Вечір</option>
+                            </select>
+                            <small>Утримуйте Ctrl/⌘ для вибору кількох опцій</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="filter-gender">Партнер</label>
+                            <select id="filter-gender" name="gender">
+                                <option value="">Будь-хто</option>
+                                <option value="male">Чоловік</option>
+                                <option value="female">Жінка</option>
+                                <option value="other">Інше</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline" onclick="resetFilters()">Скинути</button>
+                        <button type="submit" class="btn btn-primary">Застосувати</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal secondary-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2>Редагувати профіль</h2>
+                <button class="modal-close" onclick="closeProfileModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profile-form" class="profile-form">
+                    <div class="avatar-preview" id="profile-preview-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-avatar-input" class="upload-label">
+                            <i class="fas fa-camera"></i> Завантажити фото
+                        </label>
+                        <input type="file" id="profile-avatar-input" accept="image/*">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profile-name-input">Ім'я</label>
+                            <input type="text" id="profile-name-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-age-input">Вік</label>
+                            <input type="number" id="profile-age-input" min="16" max="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-gender-input">Гендер</label>
+                        <select id="profile-gender-input">
+                            <option value="male">Чоловік</option>
+                            <option value="female">Жінка</option>
+                            <option value="other">Інше</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-goal-input">Спортивна мета</label>
+                        <input type="text" id="profile-goal-input" placeholder="Підготовка до півмарафону...">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-bio-input">Про себе</label>
+                        <textarea id="profile-bio-input" rows="4" placeholder="Розкажи, як любиш тренуватись і чого хочеш досягти."></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeProfileModal()">Скасувати</button>
+                        <button type="submit" class="btn btn-primary">Зберегти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-modal" class="modal secondary-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel chat-modal-content">
+            <div class="modal-header">
+                <div class="chat-partner">
+                    <div class="chat-partner-avatar" id="chat-partner-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h3 id="chat-partner-name">Партнер</h3>
+                        <small id="chat-partner-meta">Активність • Рівень</small>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeChatModal()">&times;</button>
+            </div>
+            <div class="modal-body chat-body">
+                <div class="chat-thread" id="chat-thread"></div>
+                <form id="chat-form" class="chat-form">
+                    <input type="text" id="chat-message-input" placeholder="Напишіть повідомлення..." autocomplete="off">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="app" class="app-container" style="display: none;">
+        <div class="app-shell glass-panel">
+            <header class="app-header">
+                <div>
+                    <h1 id="app-title">Знайди напарника</h1>
+                    <span id="app-subtitle">Свайпай і знаходь нові матчі щодня</span>
+                </div>
+                <div class="app-header-actions">
+                    <button class="btn btn-glass" onclick="showFilters()">
+                        <i class="fas fa-sliders"></i>
+                        Фільтри
+                    </button>
+                    <button class="btn btn-primary" onclick="editProfile()">
+                        <i class="fas fa-user-gear"></i>
+                        Профіль
+                    </button>
+                </div>
+            </header>
+
+            <div class="app-pages">
+                <div id="find-page" class="page active">
+                    <div class="page-header">
+                        <h2>Стрічка партнерів</h2>
+                        <p>Відповідайте свайпами — алгоритм швидше вчиться</p>
+                    </div>
+                    <div class="swipe-container">
+                        <div class="swipe-card" id="swipe-card">
+                            <div class="card-overlay"></div>
+                            <div class="card-image">
+                                <div class="placeholder-avatar"></div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Завантаження...</h3>
+                                <p class="card-info">Підбираємо найкращий матч</p>
+                                <p class="card-bio">Зачекай кілька секунд — зараз з'явиться потенційний партнер.</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="action-btn skip" onclick="swipeCard('left')">
+                                    <i class="fas fa-xmark"></i>
+                                </button>
+                                <button class="action-btn like" onclick="swipeCard('right')">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="matches-page" class="page">
+                    <div class="page-header">
+                        <h2>Матчі</h2>
+                        <p>Вітаємо з новими знайомствами! Клікни, щоб перейти до чату.</p>
+                    </div>
+                    <div class="matches-list" id="matches-list">
+                        <div class="empty-state glass">
+                            <i class="fas fa-heart"></i>
+                            <h3>Ще немає матчів</h3>
+                            <p>Активніше свайпай партнерів, щоб отримати взаємні симпатії.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="chat-page" class="page">
+                    <div class="page-header">
+                        <h2>Повідомлення</h2>
+                        <p>Обговорюй нові тренування, надсилай реакції та файли.</p>
+                    </div>
+                    <div class="chat-list" id="chat-list">
+                        <div class="empty-state glass">
+                            <i class="fas fa-comments"></i>
+                            <h3>Поки що тихо</h3>
+                            <p>Щойно з'явиться матч — чат відкриється автоматично.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <h2>Твій профіль</h2>
+                        <p>Оновлюй інформацію, додавай фото та слідкуй за прогресом.</p>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-avatar">
+                            <div class="avatar-placeholder" id="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <button class="avatar-upload" onclick="uploadAvatar()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-name">Завантаження...</h2>
+                            <p id="profile-details">Вік та гендер</p>
+                            <p id="profile-bio">Опис профілю з'явиться тут.</p>
+                        </div>
+                        <div class="profile-stats glass">
+                            <div class="stat">
+                                <span class="stat-number" id="matches-count">0</span>
+                                <span class="stat-label">Матчів</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="swipes-count">0</span>
+                                <span class="stat-label">Свайпів</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="streak-count">0</span>
+                                <span class="stat-label">Streak</span>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-glass" onclick="editProfile()">
+                                <i class="fas fa-pen"></i>
+                                Редагувати
+                            </button>
+                            <button class="btn btn-outline" onclick="logoutUser()">
+                                <i class="fas fa-arrow-right-from-bracket"></i>
+                                Вийти
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="bottom-nav glass">
+                <button class="nav-item active" onclick="showPage('find')">
+                    <i class="fas fa-search"></i>
+                    <span>Пошук</span>
+                </button>
+                <button class="nav-item" onclick="showPage('matches')">
+                    <i class="fas fa-heart"></i>
+                    <span>Матчі</span>
+                </button>
+                <button class="nav-item" onclick="showPage('chat')">
+                    <i class="fas fa-comments"></i>
+                    <span>Чати</span>
+                </button>
+                <button class="nav-item" onclick="showPage('profile')">
+                    <i class="fas fa-user"></i>
+                    <span>Профіль</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
