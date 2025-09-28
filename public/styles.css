@@ -153,6 +153,7 @@ section {
 }
 
 .glass-panel {
+    
     padding: clamp(28px, 4vw, 36px);
     background: linear-gradient(160deg, rgba(21, 26, 47, 0.82), rgba(14, 18, 36, 0.68));
 }
@@ -436,7 +437,7 @@ section {
 .preview-card p,
 .preview-card small,
 .preview-card span {
-    color: var(--text-300);
+    color: white;
     font-size: 0.92rem;
 }
 
