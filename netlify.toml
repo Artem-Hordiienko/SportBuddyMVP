@@ -5,11 +5,13 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Головний редірект — завжди повертати index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Заголовки безпеки
 [[headers]]
   for = "/*"
   [headers.values]
@@ -18,17 +20,20 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# Кешування CSS
 [[headers]]
-  for = "*.css"
+  for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
+# Кешування JS
 [[headers]]
-  for = "*.js"
+  for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
+# HTML не кешуємо, щоб завжди оновлювався
 [[headers]]
-  for = "*.html"
+  for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
